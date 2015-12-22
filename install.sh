@@ -7,7 +7,7 @@ function install(){
   ln -s `pwd`/$1 $file
 }
 
-files="bashrc vimrc gitconfig"
+files="bashrc vimrc gitconfig tmux.conf"
 for f in $files; do
   install $f
 done
