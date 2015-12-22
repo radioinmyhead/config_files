@@ -78,7 +78,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -126,9 +126,6 @@ fi
 alias cp='cp -i'
 alias ds='du --max-depth=1|sort -n'
 alias fomnitty='omnitty -T 80 -f'
-alias grep='grep --color'
-alias ll='ls -lh --color'
-alias ls='ls --color'
 alias mv='mv -i'
 alias rm='rm -i --preserve-root'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
