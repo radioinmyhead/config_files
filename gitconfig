@@ -1,0 +1,9 @@
+[user]
+	name = 
+	email = 
+[merge]
+        tool = vimdiff
+[push]
+        default = matching
+[color]
+	ui = true
