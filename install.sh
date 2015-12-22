@@ -7,7 +7,7 @@ function install(){
   ln -s `pwd`/$1 $file
 }
 
-files="bashrc vimrc"
+files="bashrc vimrc gitconfig"
 for f in $files; do
   install $f
 done

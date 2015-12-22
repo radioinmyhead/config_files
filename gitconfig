@@ -1,6 +1,6 @@
 [user]
-	name = 
-	email = 
+	name = zxt
+	email = zxt@megvii.com
 [merge]
         tool = vimdiff
 [push]
