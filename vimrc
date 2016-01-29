@@ -49,6 +49,7 @@ inoremap <C-U> <C-G>u<C-U>
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+  hi comment ctermfg=blue
 endif
 
 " Only do this part when compiled with support for autocommands.
