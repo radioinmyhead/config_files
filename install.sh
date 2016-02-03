@@ -1,4 +1,6 @@
 #!/bin/bash
+type git || exit
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd `dirname $0`
 function install(){
   local file=$HOME/.$1
