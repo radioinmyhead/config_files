@@ -132,6 +132,10 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
 
+export PATH=/usr/local/go/bin:/root/gocode/bin:$PATH
+
 export SAIO_BLOCK_DEVICE=/root/srv/swift-disk
 export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
-export PATH=/usr/local/go/bin:/root/gocode/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/root/bin:/root/swift/bin
+export PATH=/root/bin:/root/swift/bin:$PATH
+
+complete -C /usr/bin/aws_completer aws
