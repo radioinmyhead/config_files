@@ -115,6 +115,7 @@ function git-branch-prompt {
 PS1="\[\033[0;31m\]$(get-host-name)>\[\033[0;36m\]\W>\[\033[0;32m\]\$(git-branch-prompt)\[\033[0m\]\\\$ "
 
 export LANG=en_US.utf8 LC_ALL=en_US.utf8
+# golang
 export GOPATH=/root/gocode
 export PATH=/usr/local/go/bin:/root/gocode/bin:$PATH
 
@@ -131,8 +132,6 @@ alias rm='rm -i --preserve-root'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
-
-export PATH=/usr/local/go/bin:/root/gocode/bin:$PATH
 
 export SAIO_BLOCK_DEVICE=/root/srv/swift-disk
 export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
