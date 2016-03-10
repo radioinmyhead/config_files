@@ -139,4 +139,4 @@ export PATH=/root/bin:/root/swift/bin:$PATH
 
 complete -C /usr/bin/aws_completer aws
 
-export $HISTSIZE=10000
+export HISTSIZE=10000
