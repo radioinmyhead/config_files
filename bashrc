@@ -138,3 +138,5 @@ export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
 export PATH=/root/bin:/root/swift/bin:$PATH
 
 complete -C /usr/bin/aws_completer aws
+
+export $HISTSIZE=10000
