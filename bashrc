@@ -116,6 +116,9 @@ PS1="\[\033[0;31m\]$(get-host-name)>\[\033[0;36m\]\W>\[\033[0;32m\]\$(git-branch
 
 export LANG=en_US.utf8 LC_ALL=en_US.utf8
 # golang
+#export GOROOT=$HOME/go
+#export PATH=$PATH:$GOROOT/bin
+#export GOPATH=$HOME/work
 export GOPATH=/root/gocode
 export PATH=/usr/local/go/bin:/root/gocode/bin:$PATH
 
