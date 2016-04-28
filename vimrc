@@ -77,8 +77,10 @@ if has("autocmd")
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+  au BufNewFile,BufRead *.tmpl set filetype=html
+  autocmd FileType html set nu shiftwidth=2 ts=2 expandtab
   " For bash files
-  autocmd FileType sh set nu shiftwidth=2 ts=2
+  autocmd FileType sh set nu shiftwidth=2 ts=2 expandtab
   " For message file
   autocmd BufNewFile,BufReadPost messages.* set filetype=messages
 
