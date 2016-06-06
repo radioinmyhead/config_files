@@ -127,6 +127,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+export EDITOR=/usr/bin/vim
 alias cp='cp -i'
 alias ds='du --max-depth=1|sort -n'
 alias fomnitty='omnitty -T 80 -f'
