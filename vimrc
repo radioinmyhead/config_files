@@ -123,3 +123,7 @@ vnoremap <silent> <M-<> gg
 vnoremap <silent> <M->> G$
 inoremap <silent> <M-<> <esc>ggi
 inoremap <silent> <M->> <esc>G$i
+
+" help
+" :PluginInstall
+" install all plugin
