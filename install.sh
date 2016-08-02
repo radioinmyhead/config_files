@@ -13,3 +13,6 @@ files="bashrc vimrc gitconfig tmux.conf"
 for f in $files; do
   install $f
 done
+
+vim +PluginInstall +qall
+
