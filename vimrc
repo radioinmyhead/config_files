@@ -124,6 +124,9 @@ vnoremap <silent> <M->> G$
 inoremap <silent> <M-<> <esc>ggi
 inoremap <silent> <M->> <esc>G$i
 
+let g:go_fmt_command = "goimports"
+
+
 " help
 " :PluginInstall
 " install all plugin
