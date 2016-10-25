@@ -104,7 +104,7 @@ function get-host-name {
     hostname|sed 's/^[0-9]*_//'
 }
 function git-branch-name {
-    git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3
+    git symbolic-ref HEAD 2>/dev/null | awk -F'heads/' '{print $2}'
 }
 function git-branch-prompt {
     local branch=`git-branch-name`
@@ -133,6 +133,8 @@ alias rm='rm -i --preserve-root'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias vi='vim'
+alias ssh='ssh -o StrictHostKeyChecking=no'
+alias node='docker run -it --rm -v /root/code_nodejs:/code -w /code node node'
 
 export SAIO_BLOCK_DEVICE=/root/srv/swift-disk
 export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
