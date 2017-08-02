@@ -16,6 +16,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -71,6 +72,19 @@ if has("autocmd")
   autocmd FileType ruby set nu sw=4 expandtab 
   " For PHP files
   autocmd FileType php set nu sw=2 expandtab
+  " For js files
+  autocmd FileType javascript set nu sw=2 expandtab
+  " For py files
+  au BufNewFile,BufRead *.py
+			  \ set nu |
+			  \ set tabstop=4 |
+			  \ set softtabstop=4 |
+			  \ set shiftwidth=4 |
+			  \ set textwidth=79 |
+			  \ set expandtab |
+			  \ set autoindent |
+			  \ set fileformat=unix |
+  autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
   " For GO files
   autocmd FileType go set nu shiftwidth=4 ts=4
   autocmd FileType go nmap <leader>r <Plug>(go-run)

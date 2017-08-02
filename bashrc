@@ -132,9 +132,14 @@ alias mv='mv -i'
 alias rm='rm -i --preserve-root'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias htmldecode='python -c "import HTMLParser,sys;print HTMLParser.HTMLParser().unescape(sys.argv[1])"'
 alias vi='vim'
 alias ssh='ssh -o StrictHostKeyChecking=no'
-alias node='docker run -it --rm -v /root/code_nodejs:/code -w /code node node'
+alias lunactl='LUNAKEY=QFv1TkSbJfVHVjTnXcEP9jexPfH4Daxy LUNAURL=https://lunav2.megvii-inc.com/v1 luna ctl'
+#alias node='docker run -it --rm -v /root/code_nodejs:/code -w /code node node'
+alias swagger="docker run --rm -it -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
+alias py="python3"
+
 
 export SAIO_BLOCK_DEVICE=/root/srv/swift-disk
 export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
@@ -143,3 +148,5 @@ export PATH=/root/bin:/root/swift/bin:$PATH
 complete -C /usr/bin/aws_completer aws
 
 export HISTSIZE=10000
+
+#PROG=lunactl source /root/tongo/src/github.com/urfave/cli/autocomplete/bash_autocomplete
