@@ -15,4 +15,7 @@ for f in $files; do
 done
 
 vim +PluginInstall +qall
+go get github.com/constabulary/gb/...
+go get github.com/tools/godep
+go get -u github.com/nsf/gocode
 
