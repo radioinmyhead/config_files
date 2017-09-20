@@ -4,7 +4,7 @@
 [merge]
         tool = vimdiff
 [push]
-        default = matching
+        default = simple
 [color]
 	ui = true
 [core]

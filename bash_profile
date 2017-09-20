@@ -1,9 +1,11 @@
-# enable color support of ls and also add handy aliases
-alias ls='ls -G'
-alias grep='grep --color'
+export LS_OPTIONS='--color=auto'
+export CLICOLOR='Yes'
+export LSCOLORS='Exfxcxdxbxegedabagacad'
 
-export GOPATH=~/tongo
-PATH=~/tongo/bin:$PATH
+alias py='python3'
+
+export GOPATH=~/radio/go
+PATH=${GOPATH}/bin:$PATH
 
 #source ~/.bash-powerline.sh
 
