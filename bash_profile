@@ -1,3 +1,5 @@
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS='Exfxcxdxbxegedabagacad'
