@@ -116,8 +116,14 @@ PS1="\[\033[0;31m\]$(get-host-name)>\[\033[0;36m\]\W>\[\033[0;32m\]\$(git-branch
 
 export LANG=en_US.utf8 LC_ALL=en_US.utf8
 # golang
-export GOPATH=/root/tongo
-PATH=/root/tongo/bin:/usr/local/go/bin:$PATH
+if [ -f /usr/local/go/bin/go ];then
+  export GOPATH=~/go
+  PATH=~/go/bin:/usr/local/go/bin:$PATH
+fi
+
+if [ -f /usr/local/node/bin/node ];then
+  PATH=/usr/local/node/bin:$PATH
+fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then

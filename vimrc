@@ -28,6 +28,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'cespare/vim-toml'
 Plugin 'mxw/vim-jsx'
+Plugin 'z0mbix/vim-shfmt'
+Plugin 'posva/vim-vue'
+Plugin 'prettier/vim-prettier'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +56,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
   hi comment ctermfg=blue
 endif
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -140,7 +147,10 @@ inoremap <silent> <M-<> <esc>ggi
 inoremap <silent> <M->> <esc>G$i
 
 let g:go_fmt_command = "goimports"
+let g:go_version_warning = 0
 
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " help
 " :PluginInstall

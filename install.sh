@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+set -x
 
 # install config file
 install(){
@@ -10,9 +12,15 @@ install(){
 
 install_vim(){
   type git || return 1
-  git clone --branch v0.10.2 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  if [ -d ~/.vim/bundle/Vundle.vim ];then
+    echo already has
+  else
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+  type go || return 1
+  type shfmt || return 1
   vim +PluginInstall +qall
-  #vim +GoInstallBinaries
+  vim +GoInstallBinaries
 }
 
 # install for Darwin
@@ -22,7 +30,7 @@ darwin(){
     install $f
   done
   
-  install_vim
+  #install_vim
 }
 
 linux(){
@@ -33,6 +41,7 @@ files="bashrc vimrc gitconfig tmux.conf"
 for f in $files; do
   install $f
 done
+install_vim
 
 }
 
@@ -52,6 +61,7 @@ case $os in
     darwin
     ;;
   linux)
+    linux
     ;;
   *)
     echo fail
