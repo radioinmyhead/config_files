@@ -14,6 +14,9 @@
 
 filetype off                  " required
 
+" https://github.com/VundleVim/Vundle.vim/issues/690
+set shell=/bin/bash
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
