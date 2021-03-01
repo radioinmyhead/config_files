@@ -116,8 +116,11 @@ PS1="\[\033[0;31m\]$(get-host-name)>\[\033[0;36m\]\W>\[\033[0;32m\]\$(git-branch
 
 export LANG=en_US.utf8 LC_ALL=en_US.utf8
 # golang
-if [ -f /usr/local/go/bin/go ];then
-  export GOPATH=~/go
+export GOROOT=/usr/local/go
+export GO111MODULE=on
+export GOPROXY=http://goproxy.io,direct
+if [ -f $GOROOT/bin/go ];then
+  GOPATH=~/go
   PATH=~/go/bin:/usr/local/go/bin:$PATH
 fi
 
@@ -130,7 +133,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/nvim
+alias vi=nvim
+alias vim=nvim
+alias vimdiff='nvim -d'
 alias cp='cp -i'
 alias ds='du --max-depth=1|sort -n'
 alias fomnitty='omnitty -T 80 -f'
@@ -139,7 +145,6 @@ alias rm='rm -i --preserve-root'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias htmldecode='python -c "import HTMLParser,sys;print HTMLParser.HTMLParser().unescape(sys.argv[1])"'
-alias vi='vim'
 alias ssh='ssh -o StrictHostKeyChecking=no'
 alias lunactl='LUNAKEY=QFv1TkSbJfVHVjTnXcEP9jexPfH4Daxy LUNAURL=https://lunav2.megvii-inc.com/v1 luna ctl'
 #alias node='docker run -it --rm -v /root/code_nodejs:/code -w /code node node'
@@ -150,6 +155,7 @@ alias py="python3"
 export SAIO_BLOCK_DEVICE=/root/srv/swift-disk
 export SWIFT_TEST_CONFIG_FILE=/etc/swift/test.conf
 export PATH=/root/bin:/root/swift/bin:$PATH
+export PATH=/root/go/src/autossh:$PATH
 
 complete -C /usr/bin/aws_completer aws
 

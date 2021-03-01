@@ -17,6 +17,9 @@ filetype off                  " required
 " https://github.com/VundleVim/Vundle.vim/issues/690
 set shell=/bin/bash
 
+" set auto save file
+set autowrite
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
@@ -97,11 +100,21 @@ if has("autocmd")
 			  \ set fileformat=unix |
   autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
   " For GO files
+  " run :GoBuild or :GoTestCompile based on the go file
+  function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+      call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+      call go#cmd#Build(0)
+    endif
+  endfunction
   autocmd FileType go set nu shiftwidth=4 ts=4
   autocmd FileType go nmap <leader>r <Plug>(go-run)
-  autocmd FileType go nmap <leader>b <Plug>(go-build)
+  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+  autocmd FileType go nmap <leader>i <Plug>(go-info)
   au BufNewFile,BufRead *.tmpl set filetype=html
   autocmd FileType html set nu shiftwidth=2 ts=2 expandtab
   " For bash files
@@ -120,6 +133,9 @@ if has("autocmd")
     \ endif
 
   augroup END
+
+  " 退出插入模式指定类型的文件自动保存
+  au InsertLeave *.go,*.sh,*.php write
 
 else
 
@@ -151,10 +167,24 @@ inoremap <silent> <M->> <esc>G$i
 
 let g:go_fmt_command = "goimports"
 let g:go_version_warning = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_list_type = "quickfix"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+"let g:go_auto_type_info = 1
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+"let mapleader = ","
 
 " help
 " :PluginInstall
 " install all plugin
+" :PluginUpdate
+" update plugin
